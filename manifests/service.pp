@@ -7,4 +7,13 @@ class postfix::service inherits postfix {
 	hasrestart => true,
 	subscribe => File['/etc/postfix/main.cf']
 	}
+
+  file_line { 'postfix.service':
+        path    => '/usr/lib/systemd/system/postfix.service',
+        line    => "PIDFile=${postfix_queue_directory}/pid/master.pid",
+        match   => '[#P]IDFile=',
+        ensure  => present,
+        }
+ 
+
 }
