@@ -5,7 +5,8 @@ class postfix::service inherits postfix {
 	enable => true,
 	hasstatus => true,
 	hasrestart => true,
-	subscribe => File['/etc/postfix/main.cf']
+	subscribe => File['/etc/postfix/main.cf'],
+        require => File_line['postfix.service']
 	}
 
   file_line { 'postfix.service':
@@ -14,6 +15,4 @@ class postfix::service inherits postfix {
         match   => '[#P]IDFile=',
         ensure  => present,
         }
- 
-
 }
