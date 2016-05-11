@@ -7,4 +7,11 @@ class postfix::config inherits postfix {
 	group => 'root',
 	mode => '0644',
 	}
+
+   file { $postfix_queue_directory:
+	ensure => directory,
+	owner => 'root',
+	group => 'root',
+	mode => '0755',
+	}
 }
