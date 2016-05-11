@@ -9,7 +9,7 @@ class postfix::aliases inherits postfix {
 
    file_line { 'aliases':
 	path    => '/etc/aliases',
-	line    => "root:               $postfixRootAlias",
+	line    => "root:               $postfix_RootAlias",
 	match   => '[#r]oot:',
 	ensure  => present,
 	}
