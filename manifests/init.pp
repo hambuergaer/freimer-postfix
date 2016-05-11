@@ -14,6 +14,7 @@ class postfix (
    class { '::postfix::install': } ->
    class { '::postfix::config': } ->
    class { '::postfix::aliases': } ->
+   class { '::postfix::pidfile': } ->
    class { '::postfix::service': } ~>
    anchor { 'postfix::end': }
 
