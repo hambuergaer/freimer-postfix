@@ -1,0 +1,17 @@
+{
+  "name": "freimer-postfix",
+  "version": "0.1.0",
+  "author": "Frank Reimer",
+  "summary": "This Puppet module installs and configures Postfix MTA on RHEL.",
+  "license": "GPL v.3+",
+  "source": "https://github.com/hambuergaer/freimer-postfix",
+  "project_page": "https://github.com/hambuergaer/freimer-postfix",
+  "issues_url": "https://github.com/hambuergaer/freimer-postfix/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
