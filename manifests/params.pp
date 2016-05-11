@@ -1,8 +1,8 @@
 class postfix::params {
 
-   $postfix_Domain = 'example.com',
-   $postfix_Relayhost = '127.0.0.1',
-   $postfix_RootAlias = 'admin@example.com')
+   $postfix_Domain = 'example.com'
+   $postfix_Relayhost = '127.0.0.1'
+   $postfix_RootAlias = 'admin@example.com'
    $postfix_message_size_limit = '10240000'
    $postfix_mailbox_size_limit = '102400000'
    $postfix_package = 'postfix'
