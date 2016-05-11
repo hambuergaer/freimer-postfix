@@ -1,41 +1,20 @@
-# == Class: postfix
-#
-# Full description of class postfix here.
-#
-# === Parameters
-#
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
-#
-# === Examples
-#
-#  class { postfix:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
-#
-# === Authors
-#
-# Author Name <author@domain.com>
-#
-# === Copyright
-#
-# Copyright 2016 Your name here, unless otherwise noted.
-#
-class postfix {
+class postfix (
+   $postfix_Domain = $postfix::params::postfix_Domain,
+   $postfix_Relayhost = $postfix::params::postfix_Relayhost,
+   $postfix_RootAlias = $postfix::params::postfix_RootAlias,
+   $postfix_message_size_limit = $postfix::params::postfix_message_size_limit,
+   $postfix_mailbox_size_limit = $postfix::params::postfix_mailbox_size_limit,
+   $postfix_package = $postfix::params::postfix_package,
+   $postfix_package_ensure = $postfix::params::postfix_package_ensure,
+   $postfix_service = $postfix::params::postfix_service,
+   $postfix_queue_directory = $postfix::params::postfix_queue_directory,
+) inherits postfix::params {
 
+   anchor { 'postfix::begin': } ->
+   class { '::postfix::install': } ->
+   class { '::postfix::config': } ->
+   class { '::postfix::aliases': } ->
+   class { '::postfix::service': } ~>
+   anchor { 'postfix::end': }
 
 }
