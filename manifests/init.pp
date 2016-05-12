@@ -2,6 +2,7 @@ class postfix (
    $postfix_Domain = $postfix::params::postfix_Domain,
    $postfix_Relayhost = $postfix::params::postfix_Relayhost,
    $postfix_RootAlias = $postfix::params::postfix_RootAlias,
+   $postfix_RewriteMail = $postfix::params::postfix_RewriteMail,
    $postfix_message_size_limit = $postfix::params::postfix_message_size_limit,
    $postfix_mailbox_size_limit = $postfix::params::postfix_mailbox_size_limit,
    $postfix_package = $postfix::params::postfix_package,
@@ -15,6 +16,7 @@ class postfix (
    class { '::postfix::config': } ->
    class { '::postfix::aliases': } ->
    class { '::postfix::pidfile': } ->
+   class { '::postfix::canonical': } ->
    class { '::postfix::service': } ~>
    anchor { 'postfix::end': }
 

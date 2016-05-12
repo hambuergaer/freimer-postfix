@@ -8,7 +8,7 @@ class postfix::canonical inherits postfix {
         mode => '0644'
 	}
 
-   exex { 'postmap_canocical':
+   exec { 'postmap_canocical':
 	command => '/sbin/postmap /etc/postfix/canonical',
 	subscribe => File['/etc/postfix/canonical'],
 	refreshonly => true,
