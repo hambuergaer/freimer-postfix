@@ -1,6 +1,6 @@
 {
   "name": "freimer-postfix",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Frank Reimer",
   "summary": "This Puppet module installs and configures Postfix MTA on RHEL.",
   "license": "GPL v.3+",
